@@ -8,4 +8,7 @@
 # Apart from the data science question obviously you need to have some relevant data as well a data science software at hand.
 
 # 1 - Data science software
-# Having worked in data science over many years I have gained some experience in data science, econometrics and statistics related software such as GAUSS, SAS, SPSS, LIMDEP, R, etc. as well as data handling related languages, e.g. SQL, PHP, Perl, etc.. Python however I had not touched so far and hence looking into  
+# Having worked in data science over many years I have gained some experience in data science, econometrics and statistics related software such as GAUSS, SAS, SPSS, LIMDEP, R, etc. as well as data handling related languages, e.g. SQL, PHP, Perl, etc.. Python however I had not touched so far and hence looking into some statistics on data science software usage showed me that the usage Python was substantially increasing over the last years. Hence I wanted to get an understanding of Python descided to use Python for this project.
+
+# 2 - Data source
+# 
