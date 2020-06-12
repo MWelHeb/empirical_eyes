@@ -15,4 +15,8 @@
 # Which development environment/programming editor to use (Jupyter, Spyder, etc.)? 
 
 # 3 - Data source
-# Basically in a first step a Google search directed me to the GitHup Datasource: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
+# Basically in a first step a Google search directed me to the GitHup Datasource: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE.
+
+# More data is needed and the internet provides a lot - but sometimes very unstructured --> noSQL 
+
+# 4 - From local to cloud
