@@ -8,9 +8,12 @@
 # Apart from the (data science) question obviously you need to have some relevant data as well a data science software at hand.
 
 # 2 - Data science software
-# Having worked in data science over many years I have gained some experience in data science, econometrics and statistics related software such as GAUSS, SAS, SPSS, LIMDEP, R, etc. as well as data handling related languages, e.g. SQL, PHP, Perl, etc.. Python however I had not touched so far and hence looking into some statistics on data science software usage showed me that the usage Python was substantially increasing over the last years. Hence I wanted to get an understanding of Python descided to use Python for this project.
+# Having worked in data science over many years I have gained some experience in data science, econometrics and statistics related software such as GAUSS, SAS, SPSS, LIMDEP, R, etc. as well as data handling related languages, e.g. SQL, PHP, Perl, etc.. Python however I had not touched so far and hence looking into some statistics on data science software usage showed me that the usage of Python was substantially increasing over the last years. Hence I wanted to get an understanding of Python descided to use Python for this project.
 
 # How to install python in which version and with which modules?
+# There are various tutorials and videos in the internet available which provide a very good description on how to install python. My first approach was to intall python directly from the python page https://www.python.org/downloads/windows/ which worked out very smooth. However later on, when I was interested in having an environement which also contains addtional to pyhton respective programming editors as was as potential interfaces to other data science software such as are. For that purpuse the distribution manager Anaconda (https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)) is suited very well. As package manager I used pip, but there is also conda - for differences between both package managers see e.g. https://en.wikipedia.org/wiki/Conda_(package_manager)
+
+
 # Which package manager, distribution manager, etc. to use (pip, conda, anaconda etc.)?
 # Which development environment/programming editor to use (Jupyter, Spyder, etc.)? 
 
