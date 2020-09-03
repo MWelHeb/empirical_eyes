@@ -19,6 +19,8 @@
 # 3 - Data analysis
 # Every data analysis starts of with finding/getting an appropriate data source to be analyzed. In my case basically in a first step a Google search directed me to the GitHub Datasource: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE. Moreover in order to extract the data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very usfull to install pandas, which is a very powerful Python data analysis library. The installation of pandas is done very easily via the package manager pip using the following command: "pip install pandas". Once pandas has been installed following compands will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
 
+[Code to get Covid19 data from JHU Github repository ](https://LinkToSource.com)
+
 import pandas as pd
 
 url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
