@@ -1,7 +1,7 @@
 """
 Created on Wed Jun 10 17:05:58 2020
 
-@author: Marc
+@author: Marc Wellner
 """
 #Project Covid Scan on Web 
 import streamlit as st
