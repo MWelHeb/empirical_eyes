@@ -22,8 +22,9 @@ After having installed Anaconda you have a set of programming editors and IDEs (
 #### 3 - Data analysis
 
 In the following I will describe the various steps of the data analysis which have been conducted including the corresponding python script. If you would like to see the full final python script please look here:
-[Data_Preparation
 
+[Data_Preparation_(01_covid_scan_sv_1.py)](01_covid_scan_sv_1.py)
+[Web_application_(02_web_scan_sv_1.py)](02_web_scan_sv_1.py)
 
 Every data analysis starts of with finding/getting an appropriate data source to be analyzed. In my case basically in a first step a Google search directed me to the GitHub Data Source: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE. Moreover, in order to extract the data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very useful to install pandas, which is a very powerful Python data analysis library. The installation of pandas is done very easily via the package manager pip using the following command: 
 
