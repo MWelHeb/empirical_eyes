@@ -1,4 +1,4 @@
-# empirical_eyes
+empirical_eyes
 
 # Publishing a data science project
 
