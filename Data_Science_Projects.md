@@ -77,6 +77,29 @@ After this various caluculations are being conducted. For example based on the a
 - Cluster 3: Indication of decreasing new daily Covid19 infections
 - Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
 - Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)")
+Obviously one needs to translate this visual cluster definition into some rules which can be applied when having the (historical) data of new covid infections for each country at hand. The rules I have used are as follows:
+- Cluster 0: Current cumulative Covid19 infections are < 1.000 cases
+- Cluster 1: Increasing new daily Covid19 infections
+         -> Avg 7 days level > 70% of max avg 7 days level so far
+         -> Avg 7 days level > Avg 14 days level
+         -> Avg 7 days level increases
+      
+         
+        "Cluster 2: Potentialy reaching the peak of new daily Covid19 infections""\n"
+        "           -> Avg 7 days level > 70% of max avg 7 days level so far""\n"
+        "           -> Avg 7 days level > Avg 14 days level""\n"
+        "           -> Avg 7 days level decreases""\n""\n"
+                
+        "Cluster 3: Indication of decreasing new daily Covid19 infections""\n"
+        "           -> Avg 7 days level > 70% of max avg 7 days level so far""\n"
+        "           -> Avg 7 days level < Avg 14 days level""\n""\n"
+        
+        "Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)""\n" 
+        "           -> Avg 7 days level between 30% and 70% of max avg 7 days level so far""\n""\n" 
+                
+        "Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)""\n" 
+        "           -> Avg 7 days level < 30% max avg 7 days level so far"
+
 
 
 ```
