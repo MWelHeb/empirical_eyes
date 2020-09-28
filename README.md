@@ -4,6 +4,6 @@ In this repository I aim to publish some data science projects which I have cond
 
 Following projects exist:
 
-[Covid19 Scan](http://http://18.192.208.203:8501/)
+[Covid19 Scan](http://18.192.208.203:8501/)
 
 
