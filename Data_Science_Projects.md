@@ -83,7 +83,8 @@ After this various caluculations are being conducted. For example based on the a
 
 Obviously one needs to translate these visual cluster definition into some *operational* rules which can be applied to any data set of historical and current numbers of new covid infections for each country at hand. The *operational* rules I have used are as follows:
 
-- Cluster 0: Current cumulative Covid19 infections are < 1.000 cases
+- Cluster 0: Current cumulative Covid19 infections are still very low
+  - Current cumulative Covid19 infections are < 1.000 cases
 - Cluster 1: Increasing new daily Covid19 infections
   - Avg 7 days level > 70% of max avg 7 days level so far
   - Avg 7 days level > Avg 14 days level
