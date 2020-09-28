@@ -28,20 +28,41 @@ In the following I will describe the various steps of the data analysis which ha
 
 Every data analysis starts of with finding/getting an appropriate data source to be analyzed. In my case basically in a first step a Google search directed me to the GitHub Data Source: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE. 
 
-In order to extract this data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very useful to install pandas, which is a very powerful Python data analysis library. The installation of pandas is done very easily via the package manager pip using the following command: 
+In order to extract this data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very useful to install the package pandas, which is a very powerful Python data analysis library. Additionally to pandas there are further packages such as numpy, DateTime, matplotlib etc. within Python which will be very helpuful for the further analysis.  
 
-`pip install pandas` 
+The installation of such packages (e.g. pandas, numpy, etc.) is done very easily via the package manager pip using the following commands: 
 
-Once pandas has been installed following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
-```
+`
+- pip install pandas
+- pip install numpy
+- pip install Datetime
+- ...
+` 
+Once such different Python packages (e.g. pandas, numpy, etc.) have beeen installed, you can easily import them right at the beginning of your programm
+`
+# (0) Import various packages 
 import pandas as pd
+import numpy as np
+import datetime
+from datetime import date, datetime, timedelta
+import requests
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+import matplotlib.dates as mdates
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+import sqlite3
+import pandasql
+from pandasql import sqldf
+`
+After the packages have been imported you are ready to start processing the data. Following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
+```
+# (1) get covid data from JHU and cleanse some Country Names
 url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 confirmed = pd.read_csv(url, error_bad_lines=False)
 print(confirmed)
 ```
 
-
-[Code to get Covid19 data from JHU Github repository](Get_Covid_Data_JHU.py)
 
 More data is needed and the internet provides a lot - but sometimes very unstructured --> noSQL 
 
