@@ -26,7 +26,9 @@ In the following I will describe the various steps of the data analysis which ha
 - [Data_Preparation_(01__run_covid_sv_1.py)](01_run_covid_sv_1.py)
 - [Web_Application_(02_web_covid_sv_1.py)](02_web_covid_sv_1.py)
 
-Every data analysis starts of with finding/getting an appropriate data source to be analyzed. In my case basically in a first step a Google search directed me to the GitHub Data Source: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE. Moreover, in order to extract the data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very useful to install pandas, which is a very powerful Python data analysis library. The installation of pandas is done very easily via the package manager pip using the following command: 
+Every data analysis starts of with finding/getting an appropriate data source to be analyzed. In my case basically in a first step a Google search directed me to the GitHub Data Source: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE. 
+
+In order to extract this data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very useful to install pandas, which is a very powerful Python data analysis library. The installation of pandas is done very easily via the package manager pip using the following command: 
 
 `pip install pandas` 
 
