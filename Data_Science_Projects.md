@@ -55,13 +55,96 @@ import sqlite3
 import pandasql
 from pandasql import sqldf
 ```
-After the packages have been imported you are ready to start processing the data. Following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
+After the packages have been imported you are ready to start processing the data. Following command will extract you the respective COVID19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
 ```
 # (1) get covid data from JHU and cleanse some Country Names
 url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 confirmed = pd.read_csv(url, error_bad_lines=False)
 print(confirmed)
 ```
+Given that the data is provided in some cases on country and in other cases on state level and I only intend to do the analysis on country level an aggregation of the infection figures to the country level need to be done:
+```
+# (2) aggregate to country
+confirmed_cn = confirmed.groupby('Country/Region', as_index=False).agg({np.sum})
+confirmed_cn.columns = confirmed_cn.columns.droplevel(1)
+confirmed_cn = confirmed_cn.reset_index()
+confirmed_cn = confirmed_cn.drop(columns=['Lat', 'Long'])
+```
+After this various caluculations are being conducted. For example based on the available cumulative infections the value of daily new infections needs to be derived. Addionally  for the purpose of getting a better view on the development of new infections it make sense to calculate moving averages for different time periods (e.g. 7 days, 14 days, etc.). Also this section aims to calculate for each country the cluster affiliation on the typical bell shaped curve of new infections. Looking at such a curve I started of with defining 6 clusters as follows:
+- Cluster 0: Current cumulative Covid19 infections are still very low
+- Cluster 1: Increasing new daily Covid19 infections
+- Cluster 2: Potentialy reaching the peak of new daily Covid19 infections
+- Cluster 3: Indication of decreasing new daily Covid19 infections
+- Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
+- Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)")
+
+
+```
+# (3) Do various calculations (e.g. transpose data, calculate new infections and moving averages, etc. )
+# transpose datum from attribute name to columne
+confirmed_cntp = confirmed_cn.melt(id_vars=["Country/Region"])
+confirmed_cntp = confirmed_cntp.rename(columns={"variable": "datum", "value": "confi"})
+confirmed_cntp["datum"] = confirmed_cntp["datum"].astype('datetime64[ns]')
+confirmed_cntp = confirmed_cntp.sort_values(by=["Country/Region", "datum"])
+confirmed_cntp = confirmed_cntp.reset_index()
+confirmed_cntp = confirmed_cntp.drop(columns=['index'])
+
+#calculate new infections: new, newpct, newgr, newgrlg
+confirmed_cntp['confi_new'] = confirmed_cntp.groupby(['Country/Region'])['confi'].diff()#.fillna(0)
+confirmed_cntp['confi_new'] = confirmed_cntp['confi_new'].fillna(confirmed_cntp['confi'])
+confirmed_cntp['confi_err'] = np.where(confirmed_cntp['confi_new'] < 0, 1, 0)
+confirmed_cntp.loc[confirmed_cntp.confi_err == 1, 'confi_new'] = 0
+
+#calculate 
+  # moving average of nf for (a) 3 days (b) 7 days (c) day 8 to 14
+  # moving average of nf gr for (a) 3 days (b) 7 days (c) day 8 to 14
+
+confirmed_cntp['ma3d'] = confirmed_cntp.groupby(['Country/Region'])['confi_new'].rolling(3).mean().reset_index(0,drop=True)
+confirmed_cntp['ma7d'] = confirmed_cntp.groupby(['Country/Region'])['confi_new'].rolling(7).mean().reset_index(0,drop=True)
+confirmed_cntp['ma7dp1'] = confirmed_cntp.ma7d.shift(1)
+confirmed_cntp['ma7dp7'] = confirmed_cntp.ma7d.shift(7)
+confirmed_cntp['ma14d'] = confirmed_cntp.groupby(['Country/Region'])['confi_new'].rolling(14).mean().reset_index(0,drop=True)
+confirmed_cntp['ma21d'] = confirmed_cntp.groupby(['Country/Region'])['confi_new'].rolling(21).mean().reset_index(0,drop=True)
+
+confirmed_cntp['ma7dmax'] = confirmed_cntp.groupby('Country/Region')['ma7d'].transform('max')
+confirmed_cntp['ma14dmax'] = confirmed_cntp.groupby('Country/Region')['ma14d'].transform('max')
+confirmed_cntp['ma7dmaxc'] = confirmed_cntp.groupby('Country/Region').ma7d.cummax()
+confirmed_cntp['ma14dmaxc'] = confirmed_cntp.groupby('Country/Region').ma14d.cummax()
+
+confirmed_cntp['ma7dlvlc'] = confirmed_cntp['ma7d'] / confirmed_cntp['ma7dmaxc']
+confirmed_cntp.loc[confirmed_cntp['ma7dlvlc'] >= 0.7, 'levelcma7d'] = 'high'
+confirmed_cntp.loc[(confirmed_cntp['ma7dlvlc'] > 0.3) & (confirmed_cntp['ma7dlvlc'] < 0.7), 'levelcma7d'] = 'mid'
+confirmed_cntp.loc[(confirmed_cntp['ma7dlvlc'] <= 0.3) & (confirmed_cntp['ma7dlvlc'] >= 0.1), 'levelcma7d'] = 'low_a'
+confirmed_cntp.loc[confirmed_cntp['ma7dlvlc'] < 0.1, 'levelcma7d'] = 'low_b'
+
+confirmed_cntp['ma7dmma7dp1'] = confirmed_cntp['ma7d']-confirmed_cntp['ma7dp1']
+confirmed_cntp.loc[confirmed_cntp['ma7dmma7dp1'] > 0, 'kippt'] = 'no'
+confirmed_cntp.loc[confirmed_cntp['ma7dmma7dp1'] <= 0, 'kippt'] = 'yes'
+
+confirmed_cntp['ma7dmma14d'] = confirmed_cntp['ma7d']-confirmed_cntp['ma14d']
+confirmed_cntp.loc[confirmed_cntp['ma7dmma14d'] > 0, 'goldencross'] = 'no'
+confirmed_cntp.loc[confirmed_cntp['ma7dmma14d'] <= 0, 'goldencross'] = 'yes'
+
+confirmed_cntp.loc[(confirmed_cntp['levelcma7d'] == 'high') & (confirmed_cntp['kippt'] == 'no') & (confirmed_cntp['goldencross'] == 'no'), 'cluster'] = 'q1'
+confirmed_cntp.loc[(confirmed_cntp['levelcma7d'] == 'high') & (confirmed_cntp['kippt'] == 'yes') & (confirmed_cntp['goldencross'] == 'no'), 'cluster'] = 'q2'
+confirmed_cntp.loc[(confirmed_cntp['levelcma7d'] == 'high') & (confirmed_cntp['goldencross'] == 'yes'), 'cluster'] = 'q3'
+confirmed_cntp.loc[(confirmed_cntp['levelcma7d'] == 'mid'), 'cluster'] = 'q4'
+confirmed_cntp.loc[(confirmed_cntp['levelcma7d'] == 'low_a'), 'cluster'] = 'q5'
+confirmed_cntp.loc[(confirmed_cntp['levelcma7d'] == 'low_b'), 'cluster'] = 'q5'
+
+confirmed_cntp.loc[(confirmed_cntp['confi'] < 1000), 'cluster'] = 'q0'
+confirmed_cntp.loc[(confirmed_cntp['confi'] >= 1000), 'cluster'] = confirmed_cntp.cluster
+
+confirmed_cntp['clusterp1'] = confirmed_cntp.cluster.shift(1) 
+confirmed_cntp.loc[(confirmed_cntp['cluster'] > confirmed_cntp['clusterp1']), 'clusterdev'] = 1
+confirmed_cntp.loc[(confirmed_cntp['cluster'] == confirmed_cntp['clusterp1']), 'clusterdev'] = 0
+confirmed_cntp.loc[(confirmed_cntp['cluster'] < confirmed_cntp['clusterp1']), 'clusterdev'] = -1
+
+confirmed_cntp['clusterp7'] = confirmed_cntp.cluster.shift(7) 
+```
+
+
+
 
 
 More data is needed and the internet provides a lot - but sometimes very unstructured --> noSQL 
