@@ -164,7 +164,7 @@ confirmed_cntp.loc[(confirmed_cntp['cluster'] < confirmed_cntp['clusterp1']), 'c
 confirmed_cntp['clusterp7'] = confirmed_cntp.cluster.shift(7) 
 ```
 
-In a next step I am joining/merging to the data frame above (which contains e.g. the calucation of cluster for each country) a futher data set which contains for each country some additional core information such as population or two letter country abreviations. This core data set has been pre-processed and stored as an Excel file (confirmed_ctrystamm.xlsx). Here in this program this Excel file just being imported into a pandas data frame for further processing.
+In a next step I am joining/merging to the data frame above (which contains e.g. the calucation of cluster for each country) a futher data set which contains for each country some additional core information such as population or two letter country abreviations. This core data set has been pre-processed and stored as an Excel file (confirmed_ctrystamm.xlsx). Here in this program this Excel file is just being imported into a pandas data frame for further processing.
 
 ```
 # (4) Merge Calculatin data set with Stammdaten and calculate further attributes
@@ -180,8 +180,50 @@ confirmed_cntpfull['confi_estshpop'] = confirmed_cntpfull['confi']*10/confirmed_
 confirmed_cntpfull['daysdouble'] = confirmed_cntpfull.confi.shift(7)/confirmed_cntpfull.ma7d
 ```
 
+When I was confronted with the situation that I needed some further information such as population and country abreviation for each country I somehow thought at the beginning that I would need to manually collect the data for the ~200 countries from the internet and put it into an Excel sheet. But luckily also here Python offers and API to query a SPARQL endpoint. Following code extracts the relevant information and stores it into an Excel file.
 
+```
+# Excurse - Get core data for each country from Wikidata via SPARQL 
+import pandas as pd
+import numpy as np
+import requests
 
-More data is needed and the internet provides a lot - but sometimes very unstructured --> noSQL 
+url = 'https://query.wikidata.org/sparql'
+query = """
+    SELECT ?country ?Cntry_CD ?countryLabel ?population 
+      WHERE 
+      {
+       ?country wdt:P463 wd:Q1065.
+       ?country wdt:P297 ?Cntry_CD.
+       ?country wdt:P1082 ?population.
+       SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+      }
+"""
+r = requests.get(url, params = {'format': 'json', 'query': query})
+data = r.json()
+
+from collections import OrderedDict
+
+countries = []
+for item in data['results']['bindings']:
+    countries.append(OrderedDict({
+        'country': item['countryLabel']['value'],
+        'Cntry_CD': item['Cntry_CD']['value'],
+        'population': item['population']['value'],
+    }))
+
+population = pd.DataFrame(countries)
+population = population.astype({'population': float})
+population = population.rename(columns={'country': 'Cntry_NMPOP'})
+# Eliminierung von potentiellen Doppeleinträgen 
+population.groupby(['Cntry_NMPOP', 'Cntry_CD'], sort=False)['population'].max()
+population.sort_values(by='population', ascending=False)
+population.reset_index(drop=True)
+print(population)
+
+population.to_excel("Population_input.xlsx", sheet_name='Tabelle1') 
+```
+
+xxx 
 
 #### 4 - From local to cloud
