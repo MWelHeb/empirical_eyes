@@ -70,7 +70,7 @@ confirmed_cn.columns = confirmed_cn.columns.droplevel(1)
 confirmed_cn = confirmed_cn.reset_index()
 confirmed_cn = confirmed_cn.drop(columns=['Lat', 'Long'])
 ```
-After this various caluculations are being conducted. For example based on the available cumulative infections the value of daily new infections needs to be derived. Addionally  for the purpose of getting a better view on the development of new infections it make sense to calculate moving averages for different time periods (e.g. 7 days, 14 days, etc.). Also this section aims to calculate for each country the cluster affiliation on the typical bell shaped curve of new infections. Looking at such a curve I started of with defining 6 clusters as follows:
+After this various caluculations are being conducted. For example based on the available cumulative infections the value of daily new infections needs to be derived. Addionally  for the purpose of getting a better view on the development of new infections it make sense to calculate moving averages for different time periods (e.g. 7 days, 14 days, etc.). Also this section aims to calculate for each country the cluster affiliation on the typical bell shaped curve of new infections. Looking at such a curve I somehow started of with *visually* defining 6 clusters as follows:
 
 - Cluster 0: Current cumulative Covid19 infections are still very low
 - Cluster 1: Increasing new daily Covid19 infections
@@ -79,7 +79,7 @@ After this various caluculations are being conducted. For example based on the a
 - Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
 - Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)
 
-Obviously one needs to translate this visual cluster definition into some rules which can be applied when having the (historical) data of new covid infections for each country at hand. The rules I have used are as follows:
+Obviously one needs to translate these visual cluster definition into some *operational* rules which can be applied to any data set of historical and current numbers of new covid infections for each country at hand. The *operational* rules I have used are as follows:
 
 - Cluster 0: Current cumulative Covid19 infections are < 1.000 cases
 - Cluster 1: Increasing new daily Covid19 infections
@@ -96,7 +96,10 @@ Obviously one needs to translate this visual cluster definition into some rules 
 - Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
   - Avg 7 days level between 30% and 70% of max avg 7 days level so far
 - Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)
-  - Avg 7 days level < 30% max avg 7 days level so far"
+  - Avg 7 days level < 30% max avg 7 days level so far
+
+If you look at the coding below you will see that there are various steps in between necessary in order to get to these final cluster affiliations. Moreover apart from calculating the current cluster affiliation my goal is also to later on display the development/dynamic of cluster affiliation, i.e. to show if a country has remained within the cluster or shifted one cluster up or down since the last snap shot. 
+ 
 ```
 # (3) Do various calculations (e.g. transpose data, calculate new infections and moving averages, etc. )
 # transpose datum from attribute name to columne
