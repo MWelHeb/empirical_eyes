@@ -76,7 +76,7 @@ After this various caluculations are being conducted. For example based on the a
 - Cluster 2: Potentialy reaching the peak of new daily Covid19 infections
 - Cluster 3: Indication of decreasing new daily Covid19 infections
 - Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
-- Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)")
+- Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)
 Obviously one needs to translate this visual cluster definition into some rules which can be applied when having the (historical) data of new covid infections for each country at hand. The rules I have used are as follows:
 - Cluster 0: Current cumulative Covid19 infections are < 1.000 cases
 - Cluster 1: Increasing new daily Covid19 infections
