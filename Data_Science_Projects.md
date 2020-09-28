@@ -83,25 +83,17 @@ Obviously one needs to translate this visual cluster definition into some rules 
   - Avg 7 days level > 70% of max avg 7 days level so far
   - Avg 7 days level > Avg 14 days level
   - Avg 7 days level increases
-  
-         
-        "Cluster 2: Potentialy reaching the peak of new daily Covid19 infections""\n"
-        "           -> Avg 7 days level > 70% of max avg 7 days level so far""\n"
-        "           -> Avg 7 days level > Avg 14 days level""\n"
-        "           -> Avg 7 days level decreases""\n""\n"
-                
-        "Cluster 3: Indication of decreasing new daily Covid19 infections""\n"
-        "           -> Avg 7 days level > 70% of max avg 7 days level so far""\n"
-        "           -> Avg 7 days level < Avg 14 days level""\n""\n"
-        
-        "Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)""\n" 
-        "           -> Avg 7 days level between 30% and 70% of max avg 7 days level so far""\n""\n" 
-                
-        "Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)""\n" 
-        "           -> Avg 7 days level < 30% max avg 7 days level so far"
-
-
-
+- Cluster 2: Potentialy reaching the peak of new daily Covid19 infections
+  - Avg 7 days level > 70% of max avg 7 days level so far
+  - Avg 7 days level > Avg 14 days level
+  - Avg 7 days level decreases
+- Cluster 3: Indication of decreasing new daily Covid19 infections
+  - Avg 7 days level > 70% of max avg 7 days level so far
+  - Avg 7 days level < Avg 14 days level
+- Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
+  - Avg 7 days level between 30% and 70% of max avg 7 days level so far
+- Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)
+  - Avg 7 days level < 30% max avg 7 days level so far"
 ```
 # (3) Do various calculations (e.g. transpose data, calculate new infections and moving averages, etc. )
 # transpose datum from attribute name to columne
