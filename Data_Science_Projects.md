@@ -10,7 +10,7 @@ In my case - at the beginning of the covid crisis - I was very much interested i
 
 My goal was not to rely on any third-party reports which I could not modify or update according to my interests and needs (e.g. which countries are displayed, which figures are shown, which time comparison is displayed etc.) but to build up an analysis/report which reflected my approach of describing the current covid situation. The basic idea was to somehow scan the typical (i.e. "bell shaped") covid curve of new infections for each and every country and then to position each country on such a "typical generic bell shaped covid curve" in order to get an overview on one page. 
 
-The basic idea can sketched on following two slides. 
+The basic idea can be sketched on following two slides: 
 ![Desc1](Description_Covid_Scan_page1.jpg)
 ![Desc2](Description_Covid_Scan_page2.jpg)
 
