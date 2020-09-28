@@ -71,13 +71,16 @@ confirmed_cn = confirmed_cn.reset_index()
 confirmed_cn = confirmed_cn.drop(columns=['Lat', 'Long'])
 ```
 After this various caluculations are being conducted. For example based on the available cumulative infections the value of daily new infections needs to be derived. Addionally  for the purpose of getting a better view on the development of new infections it make sense to calculate moving averages for different time periods (e.g. 7 days, 14 days, etc.). Also this section aims to calculate for each country the cluster affiliation on the typical bell shaped curve of new infections. Looking at such a curve I started of with defining 6 clusters as follows:
+
 - Cluster 0: Current cumulative Covid19 infections are still very low
 - Cluster 1: Increasing new daily Covid19 infections
 - Cluster 2: Potentialy reaching the peak of new daily Covid19 infections
 - Cluster 3: Indication of decreasing new daily Covid19 infections
 - Cluster 4: Decreased number of new daily Covid19 infections (compared to historical peak)
 - Cluster 5: Low number of new daily Covid19 infections (compared to historical peak)
+
 Obviously one needs to translate this visual cluster definition into some rules which can be applied when having the (historical) data of new covid infections for each country at hand. The rules I have used are as follows:
+
 - Cluster 0: Current cumulative Covid19 infections are < 1.000 cases
 - Cluster 1: Increasing new daily Covid19 infections
   - Avg 7 days level > 70% of max avg 7 days level so far
