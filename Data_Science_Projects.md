@@ -32,14 +32,14 @@ In order to extract this data from the John Hopkins University GitHub Data Repos
 
 The installation of such packages (e.g. pandas, numpy, etc.) is done very easily via the package manager pip using the following commands: 
 
-`
+```
 - pip install pandas
 - pip install numpy
 - pip install Datetime
 - ...
-` 
+``` 
 Once such different Python packages (e.g. pandas, numpy, etc.) have beeen installed, you can easily import them right at the beginning of your programm
-`
+```
 # (0) Import various packages 
 import pandas as pd
 import numpy as np
@@ -54,7 +54,7 @@ register_matplotlib_converters()
 import sqlite3
 import pandasql
 from pandasql import sqldf
-`
+```
 After the packages have been imported you are ready to start processing the data. Following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
 ```
 # (1) get covid data from JHU and cleanse some Country Names
