@@ -22,7 +22,8 @@ After having installed Anaconda you have a set of programming editors and IDEs (
 ### 3 - Data analysis
 
 Every data analysis starts of with finding/getting an appropriate data source to be analyzed. In my case basically in a first step a Google search directed me to the GitHub Data Source: D2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE. Moreover, in order to extract the data from the John Hopkins University GitHub Data Repository and to further work with it in Python it is very useful to install pandas, which is a very powerful Python data analysis library. The installation of pandas is done very easily via the package manager pip using the following command: "pip install pandas". 
-# Once pandas has been installed following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe: [Code to get Covid19 data from JHU Github repository](https://github.com/MWelHeb/empirical_eyes/blob/master/Get_Covid_Data_JHU.py)
+
+Once pandas has been installed following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe: [Code to get Covid19 data from JHU Github repository](https://github.com/MWelHeb/empirical_eyes/blob/master/Get_Covid_Data_JHU.py)
 
 More data is needed and the internet provides a lot - but sometimes very unstructured --> noSQL 
 
