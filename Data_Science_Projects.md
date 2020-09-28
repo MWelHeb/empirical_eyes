@@ -2,10 +2,6 @@ empirical_eyes
 
 # Publishing a data science projects
 
-# This is an <h1> tag
-## This is an <h2> tag
-###### This is an <h6> tag
-
 ### I – ANALYZING THE COVID 19 INFECTION DEVELOPMENT
 
 #### 1 - Starting point - to have a (data science) question. 
