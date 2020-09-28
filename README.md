@@ -25,6 +25,13 @@ Every data analysis starts of with finding/getting an appropriate data source to
 
 Once pandas has been installed following command will extract you the respective COVID-19 data (in my case only the confirmed Covid19 cases) into a pandas dataframe:
 '''
+import pandas as pd
+#####################################################################################
+# (1) get covid data from JHU and cleanse some Country Names
+
+url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
+confirmed = pd.read_csv(url, error_bad_lines=False)
+print(confirmed)
 
 '''
 
