@@ -1,4 +1,4 @@
-#### empirical_eyes
+## empirical_eyes
 
 In this repository I aim to publish some privately conducted data science projects/exercises. The documentation of these projects is ongoing. 
 
