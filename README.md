@@ -6,8 +6,7 @@ Currently the following document ["Publishing a data science project"](https://g
 
 As soon as a prototype of any project is ready it will be published. Following projects exist so far:
 
-- [Covid19 Scan](http://18.192.208.203:8501/)
-- [Covid19 Scan (including maps)](http://18.192.208.203:8502/)
+- [Covid19 Scan](http://18.192.208.203:8502/)
 
 
 
