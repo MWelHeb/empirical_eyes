@@ -6,8 +6,7 @@ I started of with the document ["Publishing a data science project (Covid19_Scan
 
 As soon as a prototype of any project is ready it will be published. Following projects exist so far:
 
-- ["Publishing a data science project (Covid19_Scan)"](https://github.com/MWelHeb/01_Covid19_Scan/blob/main/Data_Science_Projects.md)
-- --> [Covid19 Scan](http://18.192.208.203:8501/)
+- ["Publishing a data science project (Covid19_Scan)"](https://github.com/MWelHeb/01_Covid19_Scan/blob/main/Data_Science_Projects.md) --> [Covid19 Scan](http://18.192.208.203:8501/)
 
 
 
