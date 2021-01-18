@@ -10,4 +10,4 @@ As soon as a prototype of any project is ready it will be published. Following p
 
 - ["Publishing a data science project (Covid19_Scan)"](https://github.com/MWelHeb/01_Covid19_Scan/blob/main/Data_Science_Projects.md) --> [Covid19 Scan](http://18.192.208.203:8501/)
 
--["Analyzing ETF with Python"](https://github.com/MWelHeb/02_ETF_Analysis/blob/main/ETF_Analysis.md)
+- ["Analyzing ETF with Python"](https://github.com/MWelHeb/02_ETF_Analysis/blob/main/ETF_Analysis.md)
