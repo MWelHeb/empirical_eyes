@@ -1,4 +1,5 @@
-<br> <img src = Data+Science.png width 10>
+<br> 
+<img src = Data+Science.png width 10>
 
 ## empirical_eyes
 
