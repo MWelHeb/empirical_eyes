@@ -1,5 +1,5 @@
 
-<img src = Data+Science.png width="100"> <img src = Data+Science.png width="100">
+<img src = "Data+Science.png" width="200"> <img src = "econometrics.jfif" width="200">
 
 ## empirical_eyes
 
