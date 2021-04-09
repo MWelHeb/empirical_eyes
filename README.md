@@ -1,4 +1,4 @@
-<img src = "Data+Science.png" width 200>
+<img src = Data+Science.png width 200>
 ![Desc1](Data+Science.png)
 
 ## empirical_eyes
