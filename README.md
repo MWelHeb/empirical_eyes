@@ -1,3 +1,5 @@
+<img src = "empirical_eyes/Data+Science.png" width 200>
+
 ## empirical_eyes
 
 In this repository I aim to publish some privately conducted data science projects/exercises. The documentation of these projects is ongoing. As soon as a prototype of any project is ready it will be published. Please note that while the documentations of each project is basically always available I have to excuse for the fact that the corresponding application is sometimes not accessible due to the fact that it is hosted on a cloud server which sometimes has a downtime. Following projects exist so far.
