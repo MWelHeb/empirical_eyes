@@ -24,7 +24,7 @@ Algorithmic trading, i.e. trading based on algorithms or rules (which are develo
 
 ### <a name="id1"></a>4 - Descriptive Statistics
 
-During the last several years I have written - among others - a script for a three days course focusing on descriptive statistics combined with some "hands on" exercises and use cases. Given that statistical concepts are also one key component of data science and many Python projects I thought it would be reasonable to provide the script for download here.
+During the last several years I have written - among others - a script for a three days course focusing on descriptive statistics combined with some "hands on" exercises and use cases. Given that statistical concepts are also one key component of many Python data science projects I thought it would be reasonable to provide the script for download here.
 
 - [Documentation: Descriptive Statistics 3 Days Course](https://github.com/MWelHeb/04_Descriptive_Statistics/blob/main/Descriptive_Statistics_3days_course.md) 
 
