@@ -21,3 +21,10 @@ Next data science area which I was interested in related to the topic of finance
 Algorithmic trading, i.e. trading based on algorithms or rules (which are developed based on some trading strategy), refers to computerized, automated trading of financial instruments like stocks with little or no human intervention during trading hours. Nowadays in the U.S. stock market and many other developed financial markets, about 70-80 percent of overall trading volume is generated through algorithmic trading. Obviously, these figures are impressive and hence the topic caught my attention and I thought that it could be a nice use case of applying and practicing Python as well quantitative methods.
 
 - [Documentation: Algorithmic trading with Python](https://github.com/MWelHeb/03_Algo_Trading/blob/main/Algorithmic_Trading_with_Python.md) 
+
+### <a name="id1"></a>4 - Descriptive Statistics
+
+During the last several years I have written - among others - a script for a three days course focusing on descriptive statistics combined with some "hands on" exercises and use cases. Given that statistical concepts are also one key component of data science and many Python projects I thought it would be reasonable to provide the script for download here.
+
+- [Documentation: Descriptive Statistics 3 Days Course](https://github.com/MWelHeb/03_Algo_Trading/blob/main/Algorithmic_Trading_with_Python.md) 
+
