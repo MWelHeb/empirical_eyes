@@ -20,4 +20,4 @@ Next data science area which I was interested in related to the topic of finance
 ### <a name="id1"></a>3 - Algorithmic trading with Python
 Algorithmic trading, i.e., trading based on algorithms or rules (which are developed based on some trading strategy), refers to computerized, automated trading of financial instruments like stocks with little or no human intervention during trading hours. Nowadays in the U.S. stock market and many other developed financial markets, about 70-80 percent of overall trading volume is generated through algorithmic trading. Obviously, these figures are impressive and hence the topic caught my attention and I thought that it could be a nice use case of applying and practicing Python as well quantitative methods.
 
-- [Documentation: Algorithmic trading with Python](https://github.com/MWelHeb/02_ETF_Analysis/blob/main/ETF_Analysis.md) 
+- [Documentation: Algorithmic trading with Python](https://github.com/MWelHeb/03_Algo_Trading/blob/main/Algorithmic_Trading_with_Python.md) 
