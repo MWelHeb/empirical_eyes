@@ -28,3 +28,6 @@ During the last several years I have written - among others - a script for a thr
 
 - [Documentation: Descriptive Statistics - 3 Days Course](https://github.com/MWelHeb/04_Descriptive_Statistics/blob/main/Descriptive_Statistics_3days_course.md) 
 
+### <a name="id1"></a>5 - Analyzing survival probability on the Titanic
+
+xxxx
