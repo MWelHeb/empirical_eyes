@@ -32,4 +32,4 @@ During the last several years I have written - among others - a script for a thr
 
 When you search internet for data science competitions the first thing you find is Kaggle. Kaggle, founded in 2010, is an online community of data scientists and machine learning practitioners which offers among others machine learning competitions. Since 2017 Kaggle is a subsidiary of Google. A very nice way to get familiar with the Kaggle platform and to dive into ML competitions is to start with the legendary Titanic ML competition. Below you find my first approach with regards to the Titanic ML competition.
 
-- [Documentation: Algorithmic trading with Python](https://github.com/MWelHeb/03_Algo_Trading/blob/main/Algorithmic_Trading_with_Python.md) 
+- [Documentation: Titanic ML competition](https://github.com/MWelHeb/03_Algo_Trading/blob/main/Algorithmic_Trading_with_Python.md) 
